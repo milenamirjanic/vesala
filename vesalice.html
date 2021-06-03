@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+	<meta charset="utf-8">
+	<title>Vešala</title>
+	<meta name="viewport" content="width=device-width">
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+    <script src="js/script.js"></script>
+</head>
+<body>
+    <div id="wrapper">
+        <h1 id="h1" class="show">VEŠALA</h1>
+            <div id="page" class="page">
+                <button id="play" class="show" onclick="play()"> I G R A J </button>
+
+                <div id="game" class="hide">
+
+
+                    <div id="flex">
+                        <button id="reset" class="hide" onclick="reset()"> RESETUJ IGRU </button>
+
+                        <p id="pp" class="hide">TVOJI POKUSAJI : <strong id="pokusaji"></strong>
+                        <br> <strong id="pokusaji1"></strong></p>
+                    </div>
+
+                    <img id="img" class="img" alt="Čiča Gliša" src="img/s10.png" title="Čiča Gliša">
+
+                    <div id="igra">
+                        <p id="rec"></p>
+                        <div>
+                            <input id="unos" type="text" placeholder="Tvoj pokusaj">
+                            <button onclick="checkIt()">PROBAJ</button>
+                        </div>
+                        <p id="upozorenje"></p>
+                        <p id="mess">Pokusaj sa jednim slovom ili celom recju.</p>
+
+                    </div>
+
+                </div><!--#game -->
+
+            </div><!-- #page1-->
+    </div><!-- #wrapper -->
+    <script src="js/script.js"></script>
+</body>
+</html>
