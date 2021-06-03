@@ -38,7 +38,7 @@ function createSpans(rec) {
     var span;
     for (let i = 0; i < rec.length; i++) {
         span = document.createElement("SPAN");
-        var t = document.createTextNode(" _ ");
+        var t = document.createTextNode("_");
         span.setAttribute("id", "span"+i);
         span.setAttribute("class", "span");
         span.setAttribute("data-slovo", rec[i]);
@@ -96,7 +96,7 @@ function ubaciSlovo(unos) {
 }
 
 function goodEnd(unos) {
-    document.getElementById('igra').innerHTML="<p id='good'>Cica Glisa je spasen!</p>";
+    document.getElementById('igra').innerHTML="<p id='good'>Cica Glisa je spasen!<br> Rec : "+ rec+"</p> ";
     document.getElementById('wrapper').style.backgroundColor = "green";
 }
 
@@ -121,13 +121,22 @@ function pokusano(pokusaji,unos){
 
 var i = 10;
 var bul = true;
-
 function greska(bul){
     if(!bul) {
         document.getElementById('img').setAttribute("src", "img/s"+ (i-1) + ".png");
         i--;
     }
     if(i==0) badEnd(unos);
+}
+
+var niz =[];
+function stanje() {
+    var duzina = document.getElementById("rec").childElementCount;
+    var html = document.getElementsByClassName("span");
+    for (let i = 0; i < duzina; i++) {
+        niz[i] = html[i].innerHTML;
+    }
+    return niz;
 }
 
 function proveraSlova(unos) {
@@ -157,7 +166,7 @@ function proveraReci(unos){
     else{
         mess.innerHTML = "Steta! Nije to ta rec!<br> Hajmo dalje!";
         beleska(unos,pokusajiReci); 
-        bul = true;
+        bul = false;
         return bul;
     }
 }
@@ -178,6 +187,8 @@ function checkIt(){
             else {
                 pokusajiSlova.push(unos);
                 proveraSlova(unos);
+                niz=stanje();
+                if(niz.indexOf("_")==-1)goodEnd(unos);
                 ispisiPokusaje(pokusajiSlova,"pokusaji");
                 greska(bul);
                 
